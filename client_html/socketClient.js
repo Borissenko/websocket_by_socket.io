@@ -4,10 +4,13 @@ const form = document.getElementById('form');
 const input = document.getElementById('input');
 
 
-const socketClient = io('http://localhost:3000')
+// const socketClient = io('http://localhost:3000')  // URL можно не указывать.... Но порт- именно 3000 (!)
+const socketClient = io()
+
 //io - будет доступна глобально, через вставленный socket.io.js в index.html
-//сначало подключаемся по 'http'(!) - http(!)://localhost:3000',
-// а далее библиотека подключиться по протоколу ws, если он существует в броузере клиента.
+
+//сначало подключаемся по протоколу 'http'(!) - http(!)://localhost:3000',
+//а далее библиотека подключиться по протоколу ws, если он существует в броузере клиента.
 
 
 function setStatus(value) {  //изменяем  строчку "статус" на странице
@@ -26,26 +29,26 @@ form.addEventListener('submit', event => {  //ентер по полю инпу�
   event.preventDefault();
 
 //посылаем на сервер:
-  socketClient.emit('chat', input.value);
+  socketClient.emit('chat-message', input.value);
 
   input.value = ''
 })
 
-//стандартные МЕСТНЫЕ события socketClient
+//стандартные МЕСТНЫЕ события на клиенте- в socketClient
 socketClient.on('connect', () => setStatus('onLine'));            //подключение произошло. Срабатывает.
 socketClient.on('disconnect', () => setStatus('onLine is shated')); //подключение завершилось
 
-//мной придуманные события socket- и клиента, и на сервере
-socketClient.on('chat', messege => printMessage(messege))
-socketClient.on('ready', messege => printMessage(messege))
+//мной придуманные события socket, распостраняются между клиентом и сервером
+socketClient.on('chat-message', messege => printMessage(messege))
+socketClient.on('joined', messege => printMessage(messege))
 
 // Т.о.
 //   посылаем:
-// socketClient.emit('chat', input.value);  //A.==>> server  Исходящие события
+// socketClient.emit('chat-message', input.value);  //A.==>> server  Исходящие события
 // названия событий мы здесь сами придумываем
 //
 //   получаем по "клику" на сервере:
-// socketClient.on('ready', messege => printMessage(messege)) //входящие события
+// socketClient.on('joined', messege => printMessage(messege)) //входящие события
 
 
 
