@@ -1,4 +1,5 @@
 // сервер на базе вкстроенного в socket.io сервера
+//запускаем командой - node socketServer
 
 const SocketServer = require('socket.io');
 
@@ -16,4 +17,3 @@ server.on('connection', socket => {   //обект socket представляе
   // socket.broadcast.emit('message', 'User ' + user + ' connected');  //всем КРОМЕ того, кто сейчас подключился
   // server.emit('message', 'User ' + user + ' connected');   //посылаем ВСЕМ клиентам
 });
-

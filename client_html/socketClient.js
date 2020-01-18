@@ -4,10 +4,10 @@ const form = document.getElementById('form');
 const input = document.getElementById('input');
 
 
-// const socketClient = io('http://localhost:3000')  // URL можно не указывать.... Но порт- именно 3000 (!)
-const socketClient = io()
+const socketClient = io('http://localhost:3000')  // URL можно не указывать.... Но порт- именно 3000 (!)
+// const socketClient = io()
 
-//io - будет доступна глобально, через вставленный socket.io.js в index.html
+//io - будет доступна везде, т.к. мы вставили socket.io.js в index.html
 
 //сначало подключаемся по протоколу 'http'(!) - http(!)://localhost:3000',
 //а далее библиотека подключиться по протоколу ws, если он существует в броузере клиента.
