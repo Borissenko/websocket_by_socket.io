@@ -1,5 +1,5 @@
 // сервер на базе вкстроенного в socket.io сервера
-//запускаем командой - node socketServer
+//запускаем командой - node socketServer.js
 
 const SocketServer = require('socket.io');
 

@@ -55,12 +55,23 @@ node expressServer
 клиента можно запустить в броузере напрямую, но тогда не будет само обновления страницы
 Поэтому лечше запустить через сервер (например- http-server)
 
-а) из папки client_html
+а) из папки client_html запускаем файл index.html
 http-server
 
-б) из папки client_vue
+б) из папки client_vue (работает, но в консоле сервера- пояпляется, no faund...)
 запускаем файл index.html
 http-server
+
+
+
+
+
+////////////////
+источники
+https://coursehunter.net/course/znakomstvo-s-websocket
+https://medium.com/nuances-of-programming/%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D1%87%D0%B0%D1%82-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B2-%D1%80%D0%B5%D0%B6%D0%B8%D0%BC%D0%B5-%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8-%D1%81-vue-js-socket-io-%D0%B8-node-js-9035875983cb
+https://coursehunter.net/course/real-time-chat-with-node-js-socket-io-and-vue-js
+
 
 
 

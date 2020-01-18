@@ -15,14 +15,17 @@ http.listen(3000, () => {
 
 
 server.on('connection', (socket) => {
-  socket.emit('connections-length', Object.keys(io.sockets.connected).length);
+  socket.emit('connections-length', Object.keys(server.sockets.connected).length);
 
   socket.on('disconnect', () => {
     console.log("A user disconnected");
   });
 
+  // socket.on('chat-message', (data) => {
+  //   socket.broadcast.emit('chat-message', (data));  //посылаем всем, кроме свеже подключенного
+  // });
   socket.on('chat-message', (data) => {
-    socket.broadcast.emit('chat-message', (data));
+    server.emit('chat-message', (data));   //посылаем абсолютно всем
   });
 
   socket.on('typing', (data) => {
